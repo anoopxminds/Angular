@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-container',
@@ -35,6 +35,13 @@ export class ContainerComponent {
     if (this.addToCart < this.product.inStock){
       this.addToCart++;
     }
+  }
+
+  @Input()
+  searchText: string = '';
+
+  setSearchText(value: string){
+      this.searchText = value;
   }
 
 }
