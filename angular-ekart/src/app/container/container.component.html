@@ -11,5 +11,6 @@
 <!-- <input (input)="onChangeInput($event)"><br/>
 <p>Name : {{name}}</p> -->
 <app-search (searchTextChanged)="setSearchText($event)"></app-search>
-<product-list [searchText]="searchText"></product-list>
+<product-list [searchText]="searchText" #productListComponent></product-list>
+<product-detail *ngIf="productListComponent.selectedProduct"></product-detail>
 </div>
