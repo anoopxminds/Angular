@@ -1,5 +1,5 @@
 <div class="container">
-  <input type="text" #inputEl>
+  <input type="text" #inputEl (focus)="0">
   <button (click)="onClicked(inputEl)">Submit</button>
   <app-demo [message]="inputVal"></app-demo>
 </div>
