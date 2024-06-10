@@ -1,4 +1,5 @@
 <div class="container">
-  <app-demo [message]="'Hello World'"></app-demo>
-  <button>Show/Hide</button>
+  <input type="text" #inputEl>
+  <button (click)="onClicked(inputEl)">Submit</button>
+  <app-demo [message]="inputVal"></app-demo>
 </div>
