@@ -1,11 +1,11 @@
-import { AfterContentInit, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentInit{
+export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked{
   title:string = 'Demo content title';
   @Input() message:string;
   @ViewChild('temp') tempPara:ElementRef;
@@ -28,5 +28,8 @@ export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
   }
   ngAfterContentInit(){
     console.log('ngAfterContentInit hook called');
+  }
+  ngAfterContentChecked(){
+    console.log('ngAfterContentChecked hook called');
   }
 }
