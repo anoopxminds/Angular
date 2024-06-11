@@ -16,6 +16,7 @@ import { FilterComponent } from './container/product-list/filter/filter.componen
 import { ProductDetailComponent } from './container/product-detail/product-detail.component';
 import { FeaturedBrandsComponent } from './container/featured-brands/featured-brands.component';
 import { SetBackgound } from './container/CustomDirectives/SetBackground.directives';
+import { HeighlightDirective } from './container/CustomDirectives/heighlight.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SetBackgound } from './container/CustomDirectives/SetBackground.directi
     FilterComponent,
     ProductDetailComponent,
     FeaturedBrandsComponent,
-    SetBackgound
+    SetBackgound,
+    HeighlightDirective
   ],
   imports: [
     BrowserModule,
