@@ -17,6 +17,7 @@ import { ProductDetailComponent } from './container/product-detail/product-detai
 import { FeaturedBrandsComponent } from './container/featured-brands/featured-brands.component';
 import { SetBackgound } from './container/CustomDirectives/SetBackground.directives';
 import { HeighlightDirective } from './container/CustomDirectives/heighlight.directive';
+import { AppHoverDirective } from './container/CustomDirectives/app-hover.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HeighlightDirective } from './container/CustomDirectives/heighlight.dir
     ProductDetailComponent,
     FeaturedBrandsComponent,
     SetBackgound,
-    HeighlightDirective
+    HeighlightDirective,
+    AppHoverDirective
   ],
   imports: [
     BrowserModule,

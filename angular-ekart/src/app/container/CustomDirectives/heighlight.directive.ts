@@ -14,5 +14,4 @@ export class HeighlightDirective {
   @HostListener('mouseout') OnMouseOut(){
     this.renderer.removeClass(this.element.nativeElement, "heighlight-product");
   }
-
 }
