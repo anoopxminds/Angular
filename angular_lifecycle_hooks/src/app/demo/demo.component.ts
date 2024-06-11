@@ -1,14 +1,15 @@
-import { AfterContentChecked, AfterContentInit, Component, DoCheck, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewInit, Component, DoCheck, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-demo',
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked{
+export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, OnDestroy{
   title:string = 'Demo content title';
   @Input() message:string;
   @ViewChild('temp') tempPara:ElementRef;
+  toDestroy:boolean = false;
     
   constructor(){
     console.log('Demo Component constructor called');
@@ -31,5 +32,11 @@ export class DemoComponent implements OnChanges, OnInit, DoCheck, AfterContentIn
   }
   ngAfterContentChecked(){
     console.log('ngAfterContentChecked hook called');
+  }
+  ngAfterViewInit(){
+    console.log('ngAfterViewInit hook called');
+  }
+  ngOnDestroy(){
+    this.toDestroy = !this.toDestroy;
   }
 }
