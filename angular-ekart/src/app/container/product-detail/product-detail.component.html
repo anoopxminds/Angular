@@ -1,4 +1,4 @@
-<div class="ekart--product--details--info scroll">
+<div class="ekart--product--details--info scroll" [disableProduct]="true">
     <div class="ekart-product-detail-close">
         <i class="fa fa-times" aria-hidden="true"></i>
     </div>
@@ -11,9 +11,9 @@
             <h2>{{product.name}}</h2>
         </div>
         <div class="ekart-product-detail-gbc">
-            <span setBackground [backColor]="'Red'" [textColor]="'White'">{{product.gender}}</span>
-            <span setBackground [backColor]="'Green'" [textColor]="'White'">{{product.brand}}</span>
-            <span setBackground [backColor]="'Pink'" [textColor]="'White'">{{product.category}}</span>
+            <span [setBackground]="{'backColor': 'Red', 'textColor': 'White'}">{{product.gender}}</span>
+            <span [setBackground]="{'backColor': '#28282B', 'textColor': 'White'}">{{product.brand}}</span>
+            <span [setBackground]="{'backColor': 'Blue', 'textColor': 'White'}">{{product.category}}</span>
         </div>
         <div class="ekart-product-detail-price">
             <p>
