@@ -10,6 +10,7 @@ import { HeroComponent } from './header/home/hero/hero.component';
 import { SidebarComponent } from './header/home/sidebar/sidebar.component';
 import { UserDetailComponent } from './header/admin/user-detail/user-detail.component';
 import { UserListComponent } from './header/admin/user-list/user-list.component';
+import { SubscribeService } from './header/Services/subscribe.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { UserListComponent } from './header/admin/user-list/user-list.component'
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SubscribeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
