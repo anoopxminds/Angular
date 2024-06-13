@@ -9,9 +9,7 @@ export class UserService{
         new User('User3', 'Female', '2 Months', 'Inactive')
     ];
 
-    constructor(private logger: LoggerService){
-
-    }
+    constructor(private logger: LoggerService){}
 
 
     getAllUsers(){
