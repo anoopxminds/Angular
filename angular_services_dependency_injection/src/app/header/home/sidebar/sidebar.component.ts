@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SubscribeService } from '../../Services/subscribe.service';
+import { SubscribeService } from '../../../Services/subscribe.service';
 
 @Component({
   selector: 'app-sidebar',

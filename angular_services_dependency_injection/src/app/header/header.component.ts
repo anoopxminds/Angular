@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SubscribeService } from './Services/subscribe.service';
+import { SubscribeService } from '../Services/subscribe.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +7,16 @@ import { SubscribeService } from './Services/subscribe.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  selectedTab:string = 'home';
   constructor(private subService:SubscribeService){}
+
+  HomeClicked(){
+    this.selectedTab = 'home';
+  }
+
+  AdminClicked(){
+    this.selectedTab = 'admin';
+  }
 
   OnSubscribe(){
     // alert("Thank you for your subscription!.");
