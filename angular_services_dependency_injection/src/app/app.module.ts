@@ -13,6 +13,7 @@ import { UserListComponent } from './header/admin/user-list/user-list.component'
 import { SubscribeService } from './Services/subscribe.service';
 import { FormsModule } from '@angular/forms';
 import { UserService } from './Services/user.service';
+import { LoggerService } from './Services/logger.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,7 @@ import { UserService } from './Services/user.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [SubscribeService, UserService],
+  providers: [SubscribeService, UserService, LoggerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

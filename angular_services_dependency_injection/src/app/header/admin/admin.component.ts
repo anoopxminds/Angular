@@ -20,7 +20,7 @@ export class AdminComponent {
 
   createUser() {
     this.userService.createUsers(this.name, this.gender, this.subType, this.status);
-    console.log(this.userService.users);
+    // console.log(this.userService.users);
   }
 
 }
