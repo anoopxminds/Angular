@@ -15,6 +15,9 @@ import { ProductComponent } from './container/product-list/product/product.compo
 import { FilterComponent } from './container/product-list/filter/filter.component';
 import { ProductDetailComponent } from './container/product-detail/product-detail.component';
 import { FeaturedBrandsComponent } from './container/featured-brands/featured-brands.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { FeaturedBrandsComponent } from './container/featured-brands/featured-br
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
