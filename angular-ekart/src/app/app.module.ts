@@ -15,6 +15,33 @@ import { ProductComponent } from './container/product-list/product/product.compo
 import { FilterComponent } from './container/product-list/filter/filter.component';
 import { ProductDetailComponent } from './container/product-detail/product-detail.component';
 import { FeaturedBrandsComponent } from './container/featured-brands/featured-brands.component';
+import { LoginComponent } from './login/login.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { BannerComponent } from './home/banner/banner.component';
+import { ContactUsComponent } from './home/contact-us/contact-us.component';
+import { PopularComponent } from './home/popular/popular.component';
+import { ServicesComponent } from './home/services/services.component';
+import { TestimonyComponent } from './home/testimony/testimony.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ServicesService } from './Services/service.service';
+import { CourseService } from './Services/course.service';
+import { FooterComponent } from './footer/footer.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+
+
+//DEFINE ROUTES
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'Home', component: HomeComponent},
+  {path: 'About', component: AboutComponent},
+  {path: 'Contact', component: ContactComponent},
+  {path: 'Products', component: ProductListComponent},
+  {path: 'Home/Products', component: ProductListComponent},
+  {path: '**', component: NotFoundComponent},
+];
 
 @NgModule({
   declarations: [
@@ -29,13 +56,27 @@ import { FeaturedBrandsComponent } from './container/featured-brands/featured-br
     ProductComponent,
     FilterComponent,
     ProductDetailComponent,
-    FeaturedBrandsComponent
+    FeaturedBrandsComponent,
+    LoginComponent,
+    ContactComponent,
+    AboutComponent,
+    HomeComponent,
+    BannerComponent,
+    ContactUsComponent,
+    PopularComponent,
+    ServicesComponent,
+    TestimonyComponent,
+    ContactUsComponent,
+    LoginComponent,
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [ServicesService, CourseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
