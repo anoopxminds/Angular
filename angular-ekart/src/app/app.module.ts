@@ -29,6 +29,7 @@ import { ServicesService } from './Services/service.service';
 import { CourseService } from './Services/course.service';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductService } from './Services/products.service';
 
 
 //DEFINE ROUTES
@@ -76,7 +77,7 @@ const routes: Routes = [
     FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [ServicesService, CourseService],
+  providers: [ServicesService, CourseService, ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -38,6 +38,7 @@ img{
     text-align: center;
     font-size: 16px;
     font-weight: bold;
+    height: 42px;
 }
 .course-desc{
     font-size: 12px;
@@ -70,7 +71,7 @@ img{
 }
 
 .btn{
-    padding: 5px 25px;
+    padding: 5px 23px;
     border: none;
     border-radius: 2px;
     font-size: 12px;
