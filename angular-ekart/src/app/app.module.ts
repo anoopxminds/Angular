@@ -41,6 +41,7 @@ const routes: Routes = [
   {path: 'Contact', component: ContactComponent},
   {path: 'Products', component: ProductListComponent},
   {path: 'Home/Products', component: ProductListComponent},
+  {path: 'ProductDetails', component: ProductDetailComponent},
   {path: '**', component: NotFoundComponent},
 ];
 
