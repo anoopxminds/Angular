@@ -23,11 +23,12 @@ import {ProductsComponent} from "./products/products.component";
 import {FooterComponent} from "./footer/footer.component";
 import {ContactComponent} from "./contact/contact.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
+import {AuthguardService} from "./Services/authguard.service";
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'products', component: ProductsComponent},
+  {path: 'products', component: ProductsComponent, canActivate: [AuthguardService]},
   {path: 'contact', component: ContactComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', component: NotFoundComponent}
