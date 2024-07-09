@@ -1,21 +1,17 @@
-<!-- <div calss="overlay"></div> -->
-<div class="login-form-container">
-  <div class="login-form">
-    <div class="cancel-button-div">
-      <i class="fa fa-times" aria-hidden="true"></i>
+<div class="app-login-form">
+  <h2>{{ isLoginMode ? "Login" : "Register" }} Here</h2>
+  <form #authForm="ngForm" (ngSubmit)="onFormSubmitted(authForm)">
+    <div class="form-input">
+      <label>Email Address</label>
+      <input type="email" placeholder="Email address" name="email" ngModel required>
     </div>
-    <h2>Please Login Here</h2>
-    <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" required>
-
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" required>
-
-      <button type="submit">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
+    <div class="form-input">
+      <label>Password</label>
+      <input type="password" placeholder="Password" name="password" ngModel required minlength="8">
     </div>
-  </div>
+    <button type="submit" class="app-login-btn" [disabled]="authForm.invalid">{{ isLoginMode ? "Login" : "Register" }}</button>
+    <p>{{ isLoginMode ? "Do not have an account yet?" : "Already you have an account?" }}
+      <button class="app-toggle-btn" (click)="onSwitdhMode()">{{ isLoginMode ? "Register" : "Login" }} Here.</button>
+    </p>
+  </form>
 </div>

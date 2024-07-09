@@ -24,11 +24,14 @@ import {FooterComponent} from "./footer/footer.component";
 import {ContactComponent} from "./contact/contact.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
 import {CanActivateFun} from "./auth.guard";
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'products', component: ProductsComponent, canActivate: [CanActivateFun]},
+  // {path: 'products', component: ProductsComponent, canActivate: [CanActivateFun]},
+  {path: 'products', component: ProductsComponent},
+  {path: 'products/product/id', component: ProductDetailComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', component: NotFoundComponent}
@@ -54,7 +57,8 @@ const routes: Routes = [
     ProductsComponent,
     FooterComponent,
     ContactComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
-<div class="ekart--product--details--info scroll">
+<div class="ekart--product--details--info">
     <div class="ekart-product-detail-close">
         <i class="fa fa-times" aria-hidden="true"></i>
     </div>
     <div class="ekart-product-detail-image">
         <img [src]="product.imageURL" class="ekart-product-detail-image">
     </div>
-    
+
     <div class="ekart-product-detail">
         <div class="ekart-product-detail-name">
             <h2>{{product.name}}</h2>
@@ -28,7 +28,7 @@
             </div>
             <diV style="margin-top: 20px">
                 <span class="ekart-product-detail-available-size" *ngFor="let size of product.size">{{size}}</span>
-            </diV>                
+            </diV>
         </div>
 
         <div class="ekart-product-detail-color">
@@ -37,7 +37,7 @@
             </div>
             <diV style="margin-top: 20px;">
                 <span class="ekart-product-detail-available-color" *ngFor="let color of product.color" [ngStyle]="{'background-color': color, 'border': '1px solid #000'}"></span>
-            </diV>                
+            </diV>
         </div>
 
         <div class="ekart-product-detail-desc">
@@ -46,7 +46,7 @@
             </div>
             <div style="margin-top: 20px">
                 <p>{{product.description}}</p>
-            </div>                
+            </div>
         </div>
     </div>
     <div class="ekart-product-detail-addtoCart">

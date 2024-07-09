@@ -1,10 +1,13 @@
 import {inject, Injectable} from "@angular/core";
 import {UserService} from "./user.service";
+import {HttpClient} from "@angular/common/http";
+import {AuthResponse} from "../Models/AuthResponse";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService{
+  httpClient: HttpClient = inject(HttpClient);
   isLoggedIn: boolean = false;
   userService: UserService = inject(UserService);
 
@@ -26,5 +29,12 @@ export class AuthService{
   isAuthenticated(){
     return this.isLoggedIn;
   }
+
+ signup(email: string, password: string){
+   const data = {email: email, password: password, returnSecureToken: true}
+    return this.httpClient.post<AuthResponse>("https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=AIzaSyAUfooRQ3tZcQ9EpJPrbk03BLfOjQYlWXk", data)
+ }
+
+
 
 }
