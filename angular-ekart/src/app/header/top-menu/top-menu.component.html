@@ -2,5 +2,6 @@
     <a href="#">Help</a>
     <a href="#">Exchange & Returns</a>
     <a href="#">Order Tracker</a>
-    <a href="login">SignUp / Login</a>
+    <a href="login" *ngIf="!isLoggedIn">SignUp / Login</a>
+  <a href="logout" *ngIf="isLoggedIn">Logout</a>
 </div>

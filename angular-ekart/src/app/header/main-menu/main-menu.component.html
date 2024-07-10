@@ -1,3 +1,8 @@
 <div class="ekart-menu">
-    <a *ngFor="let menu of menuItems" routerLink="{{menu.toLowerCase()}}" routerLinkActive="active">{{menu}}</a>
+<!--    <a *ngFor="let menu of menuItems" routerLink="{{menu.toLowerCase()}}" routerLinkActive="active">{{menu}}</a>-->
+  <a routerLink="home" routerLinkActive="active" >Home</a>
+  <a routerLink="products" routerLinkActive="active" *ngIf="isLoggedIn">Products</a>
+  <a routerLink="sale" routerLinkActive="active">Sale</a>
+  <a routerLink="new_arrival" routerLinkActive="active">New Arrival</a>
+  <a routerLink="contact" routerLinkActive="active">Contact</a>
 </div>

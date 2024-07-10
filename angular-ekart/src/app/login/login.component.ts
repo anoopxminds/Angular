@@ -1,6 +1,9 @@
 import {Component, inject} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../Services/auth.service";
+import {Observable} from "rxjs";
+import {AuthResponse} from "../Models/AuthResponse";
+import {Route, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -9,9 +12,11 @@ import {AuthService} from "../Services/auth.service";
 })
 export class LoginComponent {
    authService: AuthService = inject(AuthService);
+  router: Router = inject(Router);
   isLoginMode: boolean = true;
   isLoading: boolean = false;
   errorMessage: string | null = null;
+  authObs: Observable<AuthResponse>;
 
   onSwitdhMode(){
     this.isLoginMode = !this.isLoginMode;
@@ -24,22 +29,25 @@ export class LoginComponent {
       const password = form.value.password;
       if(this.isLoginMode) {
         // Login
-        return;
+        this.authObs =  this.authService.login(email, password);
       } else {
         // Register
-        this.authService.signup(email, password).subscribe({
-          next: (res) => {
-            console.log(res);
-            this.isLoading = false;
-          },
-          error: (errMsg) => {
-            this.isLoading = false;
-            this.errorMessage = errMsg;
-            this.hideSnackBar();
-          }
-        });
-
+        this.authObs = this.authService.signup(email, password);
       }
+
+    this.authObs.subscribe({
+      next: (res) => {
+        console.log(res);
+        this.isLoading = false;
+        this.router.navigate(['/home'])
+      },
+      error: (errMsg) => {
+        this.isLoading = false;
+        this.errorMessage = errMsg;
+        this.hideSnackBar();
+      }
+    });
+
       form.resetForm();
   }
 
