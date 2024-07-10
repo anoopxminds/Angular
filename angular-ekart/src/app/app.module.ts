@@ -23,15 +23,20 @@ import {ProductsComponent} from "./products/products.component";
 import {FooterComponent} from "./footer/footer.component";
 import {ContactComponent} from "./contact/contact.component";
 import {NotFoundComponent} from "./not-found/not-found.component";
-import {CanActivateFun} from "./auth.guard";
+// import {CanActivateFun} from "./auth.guard";
 import { CheckoutComponent } from './checkout/checkout.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthInterceptorService} from "./Services/auth-interceptor.service";
+import {LoggingInterceptorService} from "./Services/logging-interceptor.servive";
+import { LoaderComponent } from './utility/loader/loader.component';
+import { SnackbarComponent } from './utility/snackbar/snackbar.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   // {path: 'products', component: ProductsComponent, canActivate: [CanActivateFun]},
   {path: 'products', component: ProductsComponent},
-  {path: 'products/product/id', component: ProductDetailComponent},
+  // {path: 'products/product/id', component: ProductDetailComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'login', component: LoginComponent},
   {path: '**', component: NotFoundComponent}
@@ -58,15 +63,21 @@ const routes: Routes = [
     FooterComponent,
     ContactComponent,
     NotFoundComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    LoaderComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   exports:[RouterModule],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

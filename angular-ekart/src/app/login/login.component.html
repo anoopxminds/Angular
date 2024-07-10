@@ -1,6 +1,8 @@
+<app-snackbar [errorMessage]="errorMessage" *ngIf="errorMessage"></app-snackbar>
+<app-loader *ngIf="isLoading"></app-loader>
 <div class="app-login-form">
   <h2>{{ isLoginMode ? "Login" : "Register" }} Here</h2>
-  <form #authForm="ngForm" (ngSubmit)="onFormSubmitted(authForm)">
+  <form #authForm="ngForm" (ngSubmit)="onFormSubmitted(authForm)" *ngIf="!isLoading">
     <div class="form-input">
       <label>Email Address</label>
       <input type="email" placeholder="Email address" name="email" ngModel required>
